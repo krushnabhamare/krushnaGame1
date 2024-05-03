@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0;
+    padding:0;
+}
+
+nav{
+    background-color:rgb(81, 80, 80);
+    text-align: center;
+    font-size: 2vw;
+}
+
+.box{
+    display: flex;
+   justify-content: center;
+ 
+}
+.choice img{
+   margin: 15vh 2vh 2vh 2vh ;
+   height: 10vw;
+   width: 10vw;
+   border-radius: 26vh;
+   border: 2px solid #fff;
+   cursor: pointer;
+}
+                                                        .choice img:hover{
+                                                            border: 5px solid #fff;  
+                                                        }
+body{
+    background-color: rgb(25, 24, 24);
+}
+
+#msg{
+    margin: 5vw 35vw ;
+    padding: 10px;
+    text-align: center;
+    font-size: 2vw;
+    color: #fff;
+    border: 3px solid #fff;
+    width: 20vw;
+    border-radius:10px;
+    position: absolute;
+    left: 10vh;
+    bottom: 5vh;
+}
+.scoreBord{
+    color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+}
+.UscoreBord{
+font-size: 55px;
+margin: 3vh 4vw 0 4vw ;
+}
+.UscoreBord p2{font-size: 25px;}
+
+.CscoreBord{
+    font-size: 55px;
+    margin: 3vh 4vw 0 4vw ;
+}
+.CscoreBord p2{font-size: 25px;}
+
+.foot{
+    background-color: rgb(34, 33, 33);
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+
+}
+
+                                                                /* media Queries */
+ @media screen and (max-width: 1200px) 
+{ 
+    nav{
+        background-color:rgb(81, 80, 80);
+        color: #fff;
+        text-align: center;
+        font-size: 4vh;
+    }
+    .choice img{
+        height: 25vw;
+        width: 25vw;
+        margin: 15vh 2vw 2vh 2vw ;
+    }
+    .UscoreBord{
+        font-size: 55px;
+        margin: 6vh 6vh 0 0 ;
+        }
+    .CscoreBord{
+        font-size: 55px;
+        margin: 6vh 0 0 6vh;
+        }
+     #msg{
+            margin: 10vh 0 0 0;
+            font-size: 20px;
+            color: #fff;
+            border: 3px solid #fff;
+            width: 50vw;
+            border-radius:10px;
+            position: absolute;
+            bottom: 5vh;
+            left: 22vw;
+        }
+        .foot{
+            font-size: 13px;      
+        }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <div> Rock Paper Scissor </div>
+    </nav>
+    </header>
+
+    <main>
+
+    <div class="box">
+               <div  class="choice" id="rockk" onclick="prinnnt1()">
+                  <img src="rock.png">
+                </div>
+               <div class="choice" id="paperr" onclick="prinnnt2()">
+                  <img src="paper.png">
+               </div>
+               <div class="choice" id="Scissorrr" onclick="prinnnt3()">
+                  <img src="sci.png">
+               </div>
+    </div>
+
+    <div class="scoreBord">
+            <div class="UscoreBord"><p id="usersc">0</p>
+            <p2> You </p2></div>
+            <div class="CscoreBord"><p id="compsc">0</p>
+            <p2> Comp </p2></div></div>
+    </div>
+    <div id="msg" >
+        <p>Play </p>
+    </div>
+    <p class="foot">Copyright 2024 — The Rudra Game1 . Designed by Krushna Bhamare</p>
+    </main>
+    
+
+    <script>
+        const prinnnt1 = () => {
+    let userchoice = ('rock'); 
+    const compchoice = forcomp();
+
+    if(userchoice=== compchoice){
+        document.getElementById("msg").innerHTML= "Game draw !<br>  Play Again";
+        document.getElementById("msg").style.backgroundColor = "";
+    }else if(userchoice = "rock"){
+                                      //scissors, paper
+                                      if(compchoice == "Paper"){
+                                      document.getElementById("msg").innerHTML= " You losse ! <br> computer Paper Cover your rock";
+                                      document.getElementById("msg").style.backgroundColor = "red" ;
+                                      //increase the score 
+                                      CScore++;
+                                      CompScore.innerText = CScore ;
+                                      }else{
+                                      document.getElementById("msg").innerHTML= " You Won ! <br> Your Rock Broke computer Scissors";
+                                      document.getElementById("msg").style.backgroundColor = "Green";
+                                      //increase the score 
+                                      UScore++;
+                                      UserScore.innerText = UScore ;
+                                      }   
+                                 }           
+}       
+ 
+
+
+const prinnnt2 = () => {
+    let userchoice = ('Paper');
+    console.log("you choose",userchoice); 
+    const compchoice = forcomp();
+ 
+    if(userchoice=== compchoice){
+        document.getElementById("msg").innerHTML= "Game draw !<br>  Play Again";
+        document.getElementById("msg").style.backgroundColor = "";
+    }else if(userchoice = "Paper"){
+                                      //scissors, paper
+                                      if(compchoice == "Scissor"){
+                                      document.getElementById("msg").innerHTML= " You losse ! <br> computer Scissor Cut Your Paper ";
+                                      document.getElementById("msg").style.backgroundColor = "red";
+                                      //increase the score 
+                                      CScore++;
+                                      CompScore.innerText = CScore ;
+                                      }else{
+                                      document.getElementById("msg").innerHTML= " You Won ! <br> Your Paper Cover Computer Rock";
+                                      document.getElementById("msg").style.backgroundColor = "Green";
+                                      //increase the score 
+                                      UScore++;
+                                      UserScore.innerText = UScore ;
+                                      } 
+                                  }
+}
+
+
+const prinnnt3 = () => {
+    let userchoice = ('Scissor'); 
+    const compchoice = forcomp(); 
+
+    if(userchoice=== compchoice){
+        document.getElementById("msg").innerHTML= "Game draw !<br> Play Again";
+        document.getElementById("msg").style.backgroundColor = "";
+    }else if(userchoice = "Scissor"){
+                                      //scissors, paper
+                                      if(compchoice == "rock"){
+                                      document.getElementById("msg").innerHTML= " You losse ! <br> computer rock Broke Your Scissor ";
+                                      document.getElementById("msg").style.backgroundColor = "red";
+                                      //increase the score 
+                                      CScore++;
+                                      CompScore.innerText = CScore ;
+                                      }else{
+                                      document.getElementById("msg").innerHTML= " You Won ! <br> Your Scissor cut Computer Paper";
+                                      document.getElementById("msg").style.backgroundColor = "Green";
+                                      //increase the score 
+                                      UScore++;
+                                      UserScore.innerText = UScore ;
+                                      }
+                                  }
+
+}
+
+//function for gen comp choice
+const forcomp = () =>{
+    const options = ['rock','Paper','Scissor'];
+    const num = Math.floor( Math.random() * 3 );
+    return options[num];
+}
+
+//create var to increase the score 
+let UScore = 0 ;
+let CScore = 0 ;
+
+//access the id's for increase the score 
+const UserScore = document.querySelector("#usersc");
+const CompScore = document.querySelector("#compsc");
+
+
+</script>
+</body>
+</html>
